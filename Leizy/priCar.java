@@ -1,7 +1,6 @@
 package Leizy;
 
 public class priCar extends car{
-
 	private CarType carClass;
 	public priCar(String carNumber, String previousOwners, String producer, String model, String yearOfProduce, 
 			Fuel carFuel, Color carColor, int kilometers, float cubicCentimeter,
