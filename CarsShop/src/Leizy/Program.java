@@ -1,7 +1,5 @@
 package Leizy;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.*;
 
 import Leizy.jeep.JeepType;
@@ -13,7 +11,7 @@ import Leizy.vihecle.Status;
 
 
 public class Program {
-	final static String DB_URI = "jdbc:sqlite" + ":data.db";
+	final static String DB_URL = "jdbc:sqlite" + ":data.db";
 	public static void main(String[] args) {
 		
 		DB dataBase = new DB();
@@ -65,30 +63,6 @@ public class Program {
 		}
 		
 	}
-
-}
-
-
-
-public class Main {
-
-    
-
-    public static void main(String[] args) {
-
-        DB dataBase = new DB();
-        if(!dataBase.open()){
-            System.out.println("Could not open DB");
-            return;
-        }
-        // initialize the dataBase + create tables
-        dataBase.initialize();
-
-        // this is how we can query tables
-        dataBase.query_table();
-
-        dataBase.close();
-    }
 
 }
 
