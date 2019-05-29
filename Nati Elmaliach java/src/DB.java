@@ -26,7 +26,8 @@ public class DB {
     // THE EMPLOYEE TABLE
     public static final String TABLE_EMPLOYEES = "employees";
     public static final String COLUMN_EMPLOYEES_firstName = "firstname";
-    public static final String COLUMN_EMPLOYEES_lastName = "lastName";
+    public static final String COLUMN_EMPLOYEES_userName = "userName";
+    public static final String COLUMN_EMPLOYEES_password = "password";
     public static final String COLUMN_EMPLOYEES_email = "email";
     public static final String COLUMN_EMPLOYEES_ID = "employee_id";
     public static final String COLUMN_EMPLOYEES_STARTֹDATE = "start_date";
@@ -40,11 +41,11 @@ public class DB {
     public static final String COLUMN_PROPOSAL_closeDate = "close";
 
 
-    private Connection conn;
+    private Connection connection;
 
     public boolean open(){
         try {
-            conn = DriverManager.getConnection(DB_URI);
+            connection = DriverManager.getConnection(DB_URI);
             return true;
         }catch(SQLException e){
             System.out.println("Couldent connect: " + e.getMessage());
@@ -59,7 +60,7 @@ public class DB {
 
     private void init_tables(){
         try {
-            Statement statement = conn.createStatement();
+            Statement statement = connection.createStatement();
             statement.execute("drop table clients");
             statement.execute("drop table vehicle");
             statement.execute("drop table employees");
@@ -69,7 +70,7 @@ public class DB {
 
             statement.execute("CREATE TABLE IF NOT EXISTS vehicle (model TEXT,price INTEGER,yearOfProduce TEXT,number INTEGER,hand INTEGER,status TEXT)");
             statement.execute("CREATE TABLE IF NOT EXISTS clients (firstName TEXT,lastName TEXT,client_id INTEGER,driver_licence INTEGER,phone TEXT,email TEXT, city TEXT)");
-            statement.execute("CREATE TABLE IF NOT EXISTS employees (firstname TEXT,lastName TEXT,email TEXT,employee_id INTEGER,start_date TEXT)");
+            statement.execute("CREATE TABLE IF NOT EXISTS employees (firstname TEXT,lastName TEXT,userName TEXT,password TEXT,email TEXT,employee_id INTEGER,start_date TEXT)");
             statement.execute("CREATE TABLE IF NOT EXISTS proposal (open TEXT, clientID INTEGER,prop_type TEXT,vehicleNum INTEGER,close TEXT )");
 
         }catch (SQLException e){
@@ -80,7 +81,7 @@ public class DB {
 
     private void insert_tables(){
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = connection.createStatement();
             statement.execute("INSERT INTO vehicle (model,price,yearOfProduce,number,hand,status)" +
                     "VALUES ('BMW',25000,'2011',5566611,2,'sale')");
             statement.execute("INSERT INTO vehicle (model,price,yearOfProduce,number,hand,status)" +
@@ -90,8 +91,8 @@ public class DB {
             statement.execute("INSERT INTO clients (firstName,lastName,client_id,driver_licence,phone,email,city)" +
                     " VALUES ('bob','lee',12,154545,'05255454','asdasd@gmail','TLV')");
 
-            statement.execute("INSERT INTO employees (firstname,lastName,email,employee_id,start_date)" +
-                    "VALUES ('jonh','hope','asdasd@gmail',3,'1/5/2013')");
+            statement.execute("INSERT INTO employees (firstname,lastName,userName,password,email,employee_id,start_date)" +
+                    "VALUES ('jonh','hope','admin','admin','asdasd@gmail',3,'1/5/2013')");
 
             statement.execute("INSERT INTO proposal (open,clientID,prop_type,vehicleNum,close)" +
                     "VALUES ('5/8/18',12,'buy',5566611,'1/7/2013')");
@@ -102,7 +103,7 @@ public class DB {
 
     public void query_table(){
         try{
-            Statement statement = conn.createStatement();
+            Statement statement = connection.createStatement();
             ResultSet results = statement.executeQuery("SELECT * FROM vehicle");
             while(results.next()){
                 System.out.println(
@@ -119,10 +120,22 @@ public class DB {
         }
     }
 
+    public boolean Authentication(String userName,String passWord){
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT userName,password from employees where userName="
+                                                                +"'"+userName+"'" + "and password = " + "'" +passWord+"'");
+            return resultSet.next();
+        }catch(SQLException e){
+            System.out.println("failed " + e);
+            return false;
+        }
+    }
+
     public void close(){
         try{
-            if (conn!=null){
-                conn.close();
+            if (connection !=null){
+                connection.close();
             }
         }catch(SQLException e){
             System.out.println("Couldent connect: " + e.getMessage());
