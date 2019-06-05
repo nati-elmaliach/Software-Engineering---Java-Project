@@ -1,11 +1,6 @@
 package Cars;
 
 import java.sql.*;
-
-import Cars.priCar.CarType;
-import Cars.vihecle.Color;
-import Cars.vihecle.Fuel;
-import Cars.vihecle.Status;
 public class DB {
 
     final static String DB_URI = "jdbc:sqlite" + ":data.db";
@@ -43,24 +38,20 @@ public class DB {
     public static final String COLUMN_CLIENTS_email = "email";
     public static final String COLUMN_CLIENTS_city = "city";
     public static final String COLUMN_CLIENTS_street = "street";
-    public static final String COLUMN_CLIENTS_build_number = "build_number";
-    public static final String COLUMN_CLIENTS_department_number = "department_number";
-    public static final String COLUMN_CLIENTS_zip = "zip";
-
+    public static final String COLUMN_CLIENTS_bill_number = "bill_number";
+    public static final String COLUMN_CLIENTS_license_plate = "license_plate";
 
     // THE EMPLOYEE TABLE
     public static final String TABLE_EMPLOYEES = "employees";
     public static final String COLUMN_EMPLOYEES_firstName = "firstname";
     public static final String COLUMN_EMPLOYEES_lastName = "lastName";
+    public static final String COLUMN_EMPLOYEES_position = "position";
     public static final String COLUMN_EMPLOYEES_ID = "employee_id";
     public static final String COLUMN_EMPLOYEES_START_DATE = "start_date";
     public static final String COLUMN_EMPLOYEES_phone = "phone";
     public static final String COLUMN_EMPLOYEES_email = "email";
     public static final String COLUMN_EMPLOYEES_city = "city";
     public static final String COLUMN_EMPLOYEES_street = "street";
-    public static final String COLUMN_EMPLOYEES_build_number = "build_number";
-    public static final String COLUMN_EMPLOYEES_department_number = "department_number";
-    public static final String COLUMN_EMPLOYEES_zip = "zip";
 
     //THE PROPOSAL TABLE
     public static final String  PROPOSAL_TABLE = "proposal";
@@ -91,39 +82,39 @@ public class DB {
     private void init_tables(){
         try {
             Statement statement = conn.createStatement();
-            statement.execute("drop table clients");
-            statement.execute("drop table vehicle");
-            statement.execute("drop table employees");
-            statement.execute("drop table PROPOSAL");
+            //statement.execute("drop table clients");
+//            statement.execute("drop table vehicle");
+            //statement.execute("drop table if exsits employees");
+//            statement.execute("drop table PROPOSAL");
 
           //THE VEHICLE TABLE
 
         
 
-            statement.execute("CREATE TABLE IF NOT EXISTS vehicle (model TEXT,price INTEGER,yearOfProduce TEXT,number INTEGER,hand INTEGER,status TEXT,producer TEXT, type TEXT,fuel_type TEXT,color TEXT,KM integer,prev_owner TEXT"
-            		+ "CC float,horse integer,seats_num integer ,doors_num integer,trunk_size float,number_of_wheels integer,motorcycle_type text");
-            statement.execute("CREATE TABLE IF NOT EXISTS clients (firstName TEXT,lastName TEXT,client_id INTEGER,driver_licence INTEGER,phone TEXT,email TEXT, city TEXT)");
-            statement.execute("CREATE TABLE IF NOT EXISTS employees (firstname TEXT,lastName TEXT,email TEXT,employee_id INTEGER,start_date TEXT)");
-            statement.execute("CREATE TABLE IF NOT EXISTS proposal (open TEXT, clientID INTEGER,prop_type TEXT,vehicleNum INTEGER,close TEXT )");
+//            statement.execute("CREATE TABLE IF NOT EXISTS vehicle (producer TEXT,model TEXT,type TEXT,price INTEGER,yearOfProduce TEXT,number INTEGER,hand INTEGER,status TEXT,producer TEXT, ,prev_owner TEXT"
+//            		+ "CC float,horse integer,seats_num integer ,doors_num integer,trunk_size float,number_of_wheels integer,motorcycle_type text");
+            statement.execute("CREATE TABLE IF NOT EXISTS clients (firstName TEXT,lastName TEXT,client_id INTEGER,driver_license INTEGER,phone INTEGER,email TEXT, city TEXT,street TEXT, bill_number INTEGER,license_plate INTEGER)");
+            statement.execute("CREATE TABLE IF NOT EXISTS employees (firstname TEXT,lastName TEXT,position TEXT,employee_id INTEGER,start_date TEXT,phone TEXT,email TEXT,city TEXT,street TEXT)");
+            //statement.execute("CREATE TABLE IF NOT EXISTS proposal (open TEXT, clientID INTEGER,prop_type TEXT,vehicleNum INTEGER,close TEXT )");
 
         }catch (SQLException e){
-            System.out.println("Connection is closed " + e.getMessage());
+            System.out.println("Connection is closed here " + e.getMessage());
         }
 
     }
 
     private void insert_tables(){
-        try{
-            Statement statement = conn.createStatement();
-            statement.execute("INSERT INTO vehicle (number, type,producer, model,yearOfProduce , fuel_type ,color ,KM ,CC ,hand ,price ,horse ,status ,seats_num , doors_num ,trunk_size ,number_of_wheels ,motorcycle_type )" +
-                    "VALUES ( \"112233\", \"private\", \"Hyundai\", \"I30\", \"2019\", \n" + 
-                    "				Fuel.Benzine, Color.Black , 15560 , (float)4.5,\n" + 
-                    "				0, 120000 , 1600, Status.Available, 4, 4, (float) 15.5, CarType.Managers)");
+        //try{
+//            Statement statement = conn.createStatement();
+//            statement.execute("INSERT INTO vehicle (number, type,producer, model,yearOfProduce , fuel_type ,color ,KM ,CC ,hand ,price ,horse ,status ,seats_num , doors_num ,trunk_size ,number_of_wheels ,motorcycle_type )" +
+//                    "VALUES ( \"112233\", \"private\", \"Hyundai\", \"I30\", \"2019\", \n" +
+//                    "				Fuel.Benzine, Color.Black , 15560 , (float)4.5,\n" +
+//                    "				0, 120000 , 1600, Status.Available, 4, 4, (float) 15.5, CarType.Managers)");
             
-            (String carNumber, String previousOwners, String producer, String model, String yearOfProduce, 
-        			Fuel carFuel, Color carColor, int kilometers, float cubicCentimeter,
-        			int hand, int price, int horsePower
-        			,Status carStatus, int numberOfSeats, int numberOfDoors, float SizeOfTrunk)
+//            (String carNumber, String previousOwners, String producer, String model, String yearOfProduce,
+//        			Fuel carFuel, Color carColor, int kilometers, float cubicCentimeter,
+//        			int hand, int price, int horsePower
+//        			,Status carStatus, int numberOfSeats, int numberOfDoors, float SizeOfTrunk)
             
 //            statement.execute("INSERT INTO vehicle (model,price,yearOfProduce,number,hand,status)" +
 //                    "VALUES ('SEAT',25000,'2010',5566611,2,'sale')");
@@ -137,28 +128,28 @@ public class DB {
 //
 //            statement.execute("INSERT INTO proposal (open,clientID,prop_type,vehicleNum,close)" +
 //                    "VALUES ('5/8/18',12,'buy',5566611,'1/7/2013')");
-        }catch (SQLException e){
-            System.out.println("Connection is closed " + e.getMessage());
-        }
+//        }catch (SQLException e){
+//            System.out.println("Connection is closed " + e.getMessage());
+        //}
     }
 
     public void query_table(){
-        try{
-            Statement statement = conn.createStatement();
-            ResultSet results = statement.executeQuery("SELECT * FROM vehicle");
-            while(results.next()){
-                System.out.println(
-                        results.getString("model")+ ' '
-                                + results.getInt("price") + ' '
-                                + results.getString("yearOfProduce") + ' '
-                                + results.getInt("number") + ' '
-                                + results.getInt("hand") + ' '
-                                + results.getString("status")
-                );
-            }
-        }catch(SQLException e){
-
-        }
+//        try{
+//            Statement statement = conn.createStatement();
+//            ResultSet results = statement.executeQuery("SELECT * FROM vehicle");
+//            while(results.next()){
+//                System.out.println(
+//                        results.getString("model")+ ' '
+//                                + results.getInt("price") + ' '
+//                                + results.getString("yearOfProduce") + ' '
+//                                + results.getInt("number") + ' '
+//                                + results.getInt("hand") + ' '
+//                                + results.getString("status")
+//                );
+//            }
+//        }catch(SQLException e){
+//
+//        }
     }
 
     public void close(){
