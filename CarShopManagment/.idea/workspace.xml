@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="682abe8f-e536-490f-a751-2511fbad4fa7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCar$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCar$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCarDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCustomerDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCustomerDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewCustomerDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewCustomerDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewEmployeeDialog$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewEmployeeDialog$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/AddNewEmployeeDialog.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/AddNewEmployeeDialog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Address.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Address.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Contact.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Contact.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/DB.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/DB.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/EmploeePage.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/EmploeePage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Employee$position.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Employee.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Employee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/LoginPage$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/LoginPage$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/LoginPage$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/LoginPage$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/LoginPage$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/LoginPage$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/LoginPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/LoginPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Offer.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Offer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Store.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/car.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/car.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/care$typeOfCare.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/care$typeOfCare.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/care.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/care.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/deal$status.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/deal$status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/deal$type.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/deal$type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/deal.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/deal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/jeep$JeepType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/jeep$JeepType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/jeep.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/jeep.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/motorcycle$MotorCycleType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/motorcycle$MotorCycleType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/motorcycle.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/motorcycle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/priCar$CarType.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/priCar$CarType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/priCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/priCar.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/sport.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/sport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/truck.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/truck.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/vihecle$Color.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/vihecle$Color.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/vihecle$Fuel.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/vihecle$Fuel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/vihecle$Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/vihecle$Status.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/Cars/vihecle.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Cars/vihecle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.db" beforeDir="false" afterPath="$PROJECT_DIR$/data.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cars/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cars/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cars/DB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cars/DB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cars/EmploeePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cars/EmploeePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cars/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cars/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cars/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cars/Program.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/bin/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Cars/Program.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cars/Client.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cars/Employee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="54" column="116" lean-forward="true" selection-start-line="54" selection-start-column="116" selection-end-line="54" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Cars/DB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-33">
+              <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Cars/Client.java" />
+        <option value="$PROJECT_DIR$/src/Cars/Program.java" />
+        <option value="$PROJECT_DIR$/src/Cars/DB.java" />
+        <option value="$PROJECT_DIR$/src/Cars/Employee.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-98" />
+    <option name="y" value="270" />
+    <option name="width" value="1300" />
+    <option name="height" value="469" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="CarShopManagment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarShopManagment" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarShopManagment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarShopManagment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="CarShopManagment" type="b2602c69:ProjectViewProjectNode" />
+              <item name="CarShopManagment" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Cars" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559727293243" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/sqlite-jdbc-3.27.2.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.36976743" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Cars.Program" />
+      <module name="CarShopManagment" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Cars.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Program" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="682abe8f-e536-490f-a751-2511fbad4fa7" name="Default Changelist" comment="" />
+      <created>1559668969903</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559668969903</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1040" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Image Layers" order="0" />
+      <window_info id="Designer" order="1" />
+      <window_info id="UI Designer" order="2" />
+      <window_info id="Capture Tool" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="5" visible="true" weight="0.08171521" />
+      <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="3" weight="0.3296582" />
+      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.39911798" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info active="true" anchor="bottom" id="Run" order="10" visible="true" weight="0.40683573" />
+      <window_info anchor="right" id="Palette" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Maven" order="2" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="5" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
+    </layout>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Cars/Client.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Cars/sport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cars/EmploeePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Downloads/sqlite-jdbc-3.27.2.1.jar!/org/sqlite/jdbc3/JDBC3Connection.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="34" column="78" selection-start-line="34" selection-start-column="78" selection-end-line="34" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cars/DB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33">
+          <caret line="81" column="31" lean-forward="true" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cars/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="63" column="42" selection-start-line="63" selection-start-column="42" selection-end-line="63" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cars/Employee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="54" column="116" lean-forward="true" selection-start-line="54" selection-start-column="116" selection-end-line="54" selection-end-column="116" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cars/Program.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="15" column="25" lean-forward="true" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>11</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>CarShopManagment</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>sqlite-jdbc-3.27.2.1</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.36976743" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
