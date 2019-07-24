@@ -1,5 +1,6 @@
 package view.panels.AddPanels;
 
+import view.DialogListener;
 import view.forms.FormEvent;
 import view.forms.FormListener;
 import view.panels.FormPanel;
@@ -27,6 +28,8 @@ public class AddNewCustomerPanel extends FormPanel {
     private JTextField maxPriceField;
     private JButton submitForm;
     private FormListener listener;
+    private DialogListener dialogListener;
+
 
     public AddNewCustomerPanel(){
         super();
@@ -35,16 +38,22 @@ public class AddNewCustomerPanel extends FormPanel {
         setBorder(BorderFactory.createCompoundBorder(outterBorder,innerBorder));
 
         firstNameLabel = new JLabel("First Name");
-        firstNameField = new JTextField(10);
+        firstNameField = new JTextField();
+        firstNameField.setMinimumSize(new Dimension(120,20));
+        //firstNameField.setPreferredSize(new Dimension(10,10));
 
         lastNameLabel = new JLabel("Last Name");
         lastNameField = new JTextField(10);
+        lastNameField.setMinimumSize(new Dimension(120,20));
 
         emailLabel = new JLabel("Email Adress");
         emailField = new JTextField(10);
+        emailField.setMinimumSize(new Dimension(120,20));
+
 
         phoneNumberLabel = new JLabel("Phone Number");
         phoneNumberField = new JTextField(10);
+        phoneNumberField.setMinimumSize(new Dimension(120,20));
 
         //set List options
         intrestedCategoryLabel = new JLabel("Intrested In");
@@ -65,17 +74,23 @@ public class AddNewCustomerPanel extends FormPanel {
 
         maxPriceLabel = new JLabel("Maximum Price");
         maxPriceField = new JTextField(10);
+        maxPriceField.setMinimumSize(new Dimension(120,20));
         submitForm = new JButton("Submit");
 
         submitForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(formValidation() == false){
+                    dialogListener.errorOccuerd();
+                    return;
+                }
+
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
                 String email = emailField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String intrestCategory = intrestedCategoryField.getSelectedValue().toString();
                 int maxPrice = numiericFieldsValidation(maxPriceField.getText());
+                String intrestCategory = intrestedCategoryField.getSelectedValue().toString();
 
                 FormEvent CustomerEvent = new FormEvent(this,firstName,lastName,email,phoneNumber,intrestCategory,maxPrice);
                 if(listener !=null)
@@ -199,7 +214,24 @@ public class AddNewCustomerPanel extends FormPanel {
         add(submitForm, gc);
     }
 
+    @Override
+    public boolean formValidation() {
+        if(maxPriceField.getText().length() == 0 ||
+           firstNameField.getText().length() == 0 ||
+           lastNameField.getText().length() ==0 ||
+           emailField.getText().length() ==0 ||
+           phoneNumberField.getText().length() ==0 ||
+           intrestedCategoryField.getSelectedValue() == null)
+            return false;
+        else
+            return true;
+    }
+
     public void setFormListener(FormListener listener) {
         this.listener = listener;
+    }
+
+    public void setDialogListener(DialogListener dialogListener){
+        this.dialogListener = dialogListener;
     }
 }

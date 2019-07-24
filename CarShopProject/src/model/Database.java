@@ -6,10 +6,7 @@ import model.PersonEntity.EmployeeCategory;
 import model.Vehicles.*;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Database {
 
@@ -19,7 +16,13 @@ public class Database {
     private ArrayList<PrivateCar> privateCars;
     private ArrayList<IndustrialCar> industrialCars;
     private ArrayList<DealsHistory> dealsHistories;
+
+
     private ArrayList<PrivateCar> privateCarsQueryResults;
+    private ArrayList<IndustrialCar> industrialCarsQueryResults;
+    private ArrayList<Customer> custumersQueryResults;
+    private ArrayList<Employee> employeesQueryResults;
+    private ArrayList<DealsHistory> dealsHistoriesQueryResults;
 
     public Database() {
         customers = new ArrayList<Customer>();
@@ -30,6 +33,11 @@ public class Database {
 
         //query data results
         privateCarsQueryResults= new ArrayList<PrivateCar>();
+        industrialCarsQueryResults = new ArrayList<IndustrialCar>();
+        custumersQueryResults = new ArrayList<Customer>();
+        employeesQueryResults = new ArrayList<Employee>();
+        dealsHistoriesQueryResults = new ArrayList<DealsHistory>();
+
 
         //load data from the database
         loadCustomers();
@@ -135,7 +143,7 @@ public class Database {
                 String intrestedCategory = results.getString("intrestedIn");
                 int maxPrice = results.getInt("maxPrice");
 
-                Customer customer = new Customer(firstName, lastName, email, phoneNumber, PrivateCarCategory.valueOf(intrestedCategory),maxPrice);
+                Customer customer = new Customer(-1,firstName, lastName, email, phoneNumber, PrivateCarCategory.valueOf(intrestedCategory),maxPrice);
                 customers.add(customer);
             }
 
@@ -196,7 +204,7 @@ public class Database {
                 String startDate = results.getString("startDate");
                 String employeeType = results.getString("employeeType");
 
-                Employee employee = new Employee(firstName, lastName, email, phoneNumber,startDate, EmployeeCategory.valueOf(employeeType));
+                Employee employee = new Employee(-1,firstName, lastName, email, phoneNumber,startDate, EmployeeCategory.valueOf(employeeType));
                 employees.add(employee);
             }
 
@@ -319,6 +327,174 @@ public class Database {
         }
 
         return privateCarsQueryResults;
+    }
+
+    public List<IndustrialCar> getIndustrialCarsQuery(Map<String, Object> industrialCarMap) {
+        industrialCarsQueryResults.clear();
+        String SQL = "select * from industrialCars where 1=1";
+
+        //retrieving values from map
+        Set<String> keySet= industrialCarMap.keySet();
+        for(String key:keySet){
+            if(industrialCarMap.get(key) instanceof String)
+                SQL += " and " + key + " = '" + industrialCarMap.get(key) + "'";
+            else if(industrialCarMap.get(key) instanceof Integer)
+                SQL += " and " + key + " <= " + industrialCarMap.get(key);
+        }
+
+        try(Connection conn = DriverManager.getConnection(DB_URI); PreparedStatement ps = conn.prepareStatement(SQL);){
+
+            Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(SQL);
+
+            while(results.next()) {
+
+                TypeCategory type = TypeCategory.industrialCar;
+                String plateNumber = results.getString("plateNumber");
+                String color = results.getString("color");
+                int hand = results.getInt("hand");
+                int km = results.getInt("KM");
+                String yearOfProduction = results.getString("yearOfProduction");
+                int price = results.getInt("price");
+                String manufacturer = results.getString("manufacturer");
+                String status = results.getString("status");
+                int loadWeight = results.getInt("loadWeight");
+                int height = results.getInt("height");
+
+
+                IndustrialCar car = new IndustrialCar(plateNumber,color,hand,km,yearOfProduction,price,manufacturer,type,CarStatus.valueOf(status),loadWeight,height);
+                industrialCarsQueryResults.add(car);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return industrialCarsQueryResults;
+
+    }
+
+    public List<Customer> getCustomersQuery(Map<String, Object> customersMap) {
+        custumersQueryResults.clear();
+        String SQL = "select * from customers where 1=1";
+
+        Set<String> keySet= customersMap.keySet();
+        for(String key:keySet){
+            if(customersMap.get(key) instanceof String)
+                SQL += " and " + key + " = '" + customersMap.get(key) + "'";
+            else if(customersMap.get(key) instanceof Integer)
+                SQL += " and " + key + " <= " + customersMap.get(key);
+        }
+        System.out.println(SQL);
+
+        try(Connection conn = DriverManager.getConnection(DB_URI); PreparedStatement ps = conn.prepareStatement(SQL);){
+
+            Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(SQL);
+
+            while(results.next()) {
+
+                int client_id = results.getInt("client_id");
+                String firstName = results.getString("firstName");
+                String lastName = results.getString("lastName");
+                String phoneNumber = results.getString("phoneNumber");
+                String email = results.getString("email");
+                String intrestedIn = results.getString("intrestedIn");
+                int maxPrice = results.getInt("maxPrice");
+
+
+                Customer customer = new Customer(client_id,firstName,lastName,email,phoneNumber,PrivateCarCategory.valueOf(intrestedIn),maxPrice);
+                custumersQueryResults.add(customer);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return custumersQueryResults;
+
+    }
+
+    public List<Employee> getEmployeesQuery(Map<String, Object> employeeMap) {
+        employeesQueryResults.clear();
+        String SQL = "select * from employeees where 1=1";
+
+        Set<String> keySet= employeeMap.keySet();
+        for(String key:keySet){
+            if(employeeMap.get(key) instanceof String)
+                SQL += " and " + key + " = '" + employeeMap.get(key) + "'";
+            else if(employeeMap.get(key) instanceof Integer)
+                SQL += " and " + key + " <= " + employeeMap.get(key);
+        }
+        System.out.println(SQL);
+
+        try(Connection conn = DriverManager.getConnection(DB_URI); PreparedStatement ps = conn.prepareStatement(SQL);){
+
+            Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(SQL);
+
+            while(results.next()) {
+
+                int employee_id = results.getInt("employee_id");
+                String firstName = results.getString("firstName");
+                String lastName = results.getString("lastName");
+                String phoneNumber = results.getString("phoneNumber");
+                String email = results.getString("email");
+                String startDate = results.getString("startDate");
+                String employeeType = results.getString("employeeType");
+
+
+                Employee employee = new Employee(employee_id,firstName,lastName,email,phoneNumber,startDate,EmployeeCategory.valueOf(employeeType));
+                employeesQueryResults.add(employee);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return employeesQueryResults;
+
+    }
+
+    public List<DealsHistory> getDealsHistoryQuery(Map<String, Object> dealsMap) {
+        final List<String> ids = Arrays.asList("employeeID","customerID");
+
+        dealsHistoriesQueryResults.clear();
+        String SQL = "select * from DealsHistory where 1=1";
+
+        Set<String> keySet= dealsMap.keySet();
+        for(String key:keySet){
+            if(dealsMap.get(key) instanceof String)
+                SQL += " and " + key + " = '" + dealsMap.get(key) + "'";
+            else if(dealsMap.get(key) instanceof Integer && ids.contains(key))
+                SQL += " and " + key + " = " + dealsMap.get(key);
+            else if(dealsMap.get(key) instanceof Integer)
+                SQL += " and " + key + " <= " + dealsMap.get(key);
+
+        }
+        System.out.println(SQL);
+
+        try(Connection conn = DriverManager.getConnection(DB_URI); PreparedStatement ps = conn.prepareStatement(SQL);){
+
+            Statement statement = conn.createStatement();
+            ResultSet results = statement.executeQuery(SQL);
+
+            while(results.next()) {
+
+                int employee_id = results.getInt("employeeID");
+                int clientId = results.getInt("customerID");
+                int sellingPrice = results.getInt("sellingPrice");
+                String carPlateNumber = results.getString("carPlateNumber");
+                String dealDate = results.getString("dealDate");
+
+
+
+                DealsHistory dealsHistory = new DealsHistory(employee_id,clientId,carPlateNumber,sellingPrice,dealDate);
+                dealsHistoriesQueryResults.add(dealsHistory);
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+        return dealsHistoriesQueryResults;
+
     }
 
 
@@ -449,6 +625,21 @@ public class Database {
         }
     }
 
+    public void deleteHistory(){
+        final String SQL = "delete from privateCars where yearOfProduction = 204";
+
+        //try with resources - resources will be closed
+        try (Connection conn = DriverManager.getConnection(DB_URI); PreparedStatement ps = conn.prepareStatement(SQL);){
+
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
     public List<Customer> getCustomers() {
         return customers;
     }
@@ -468,4 +659,7 @@ public class Database {
     public List<DealsHistory> getDealsHistory(){
         return dealsHistories;
     }
+
+
+
 }

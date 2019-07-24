@@ -3,7 +3,6 @@ package view.panels.searchPanels;
 import view.forms.FormEvent;
 import view.forms.FormListener;
 import view.panels.FormPanel;
-import view.panels.PrivateCarList;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -25,7 +24,7 @@ public class SerachEmployeePanel extends FormPanel {
     private JLabel startdateLabel;
     private JTextField startdateField;
     private JLabel employeeCategoryLabel;
-    private JList employeeCategoryField;
+    private JComboBox employeeCategoryField;
     private JButton submitForm;
     private FormListener listener;
 
@@ -52,15 +51,22 @@ public class SerachEmployeePanel extends FormPanel {
 
         //set List options
         employeeCategoryLabel = new JLabel("Employee Type");
-        employeeCategoryField = new JList();
-        employeeCategoryField.setPreferredSize(new Dimension(105, 50));
-        employeeCategoryField.setBorder(BorderFactory.createEtchedBorder());
-        employeeCategoryField.setSelectedIndex(0);
+        employeeCategoryField = new JComboBox();
 
-        DefaultListModel typeModel = new DefaultListModel();
-        typeModel.addElement(new PrivateCarList(0, "Employee"));
-        typeModel.addElement(new PrivateCarList(1, "Manager"));
-        employeeCategoryField.setModel(typeModel);
+        DefaultComboBoxModel employeeType = new DefaultComboBoxModel();
+        employeeType.addElement("Employee");
+        employeeType.addElement("Manager");
+        employeeCategoryField.setModel(employeeType);
+        employeeCategoryField.setSelectedIndex(0);
+        employeeCategoryField.setEditable(true);
+        employeeCategoryField.setPreferredSize(new Dimension(105, 20));
+
+        firstNameField.setMinimumSize(new Dimension(120,20));
+        lastNameField.setMinimumSize(new Dimension(120,20));
+        emailField.setMinimumSize(new Dimension(120,20));
+        phoneNumberField.setMinimumSize(new Dimension(120,20));
+        startdateField.setMinimumSize(new Dimension(120,20));
+        employeeCategoryField.setMinimumSize(new Dimension(120,20));
 
         submitForm = new JButton("Search");
         submitForm.addActionListener(new ActionListener() {
@@ -70,7 +76,8 @@ public class SerachEmployeePanel extends FormPanel {
                 String lastName = lastNameField.getText();
                 String email = emailField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String employeeType = employeeCategoryField.getSelectedValue().toString();
+                String employeeType = employeeCategoryField.getSelectedItem().toString();
+                System.out.println(employeeType);
                 String startDate = startdateField.getText();
 
                 FormEvent employeeEvent = new FormEvent(this,firstName,lastName,email,phoneNumber,startDate,employeeType);
@@ -193,6 +200,11 @@ public class SerachEmployeePanel extends FormPanel {
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(10, 0, 0, 0);
         add(submitForm, gc);
+    }
+
+    @Override
+    public boolean formValidation() {
+        return false;
     }
 
     public void setFormListener(FormListener listener) {

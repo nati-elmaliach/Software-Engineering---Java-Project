@@ -1,5 +1,6 @@
 package view.panels.AddPanels;
 
+import view.DialogListener;
 import view.forms.FormEvent;
 import view.forms.FormListener;
 import view.panels.FormPanel;
@@ -24,6 +25,10 @@ public class AddNewDealPanel extends FormPanel {
     private JTextField dateField;
     private JButton submitForm;
     private FormListener listener;
+    private DialogListener dialogListener;
+
+    //private JFrame mainFrame= (JFrame) SwingUtilities.getRoot(();
+
 
 
     public AddNewDealPanel(){
@@ -51,6 +56,12 @@ public class AddNewDealPanel extends FormPanel {
         submitForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
+                if(formValidation() == false){
+                    dialogListener.errorOccuerd();
+                    return;
+                }
+
                 int employeeID = numiericFieldsValidation(employeeIDField.getText());
                 int customerID = numiericFieldsValidation(clientIDField.getText());
                 String plateNumber = CarplateNumberField.getText();
@@ -161,7 +172,24 @@ public class AddNewDealPanel extends FormPanel {
         add(submitForm, gc);
     }
 
+    @Override
+    public boolean formValidation() {
+        if(numiericFieldsValidation(employeeIDField.getText()) == -1 ||
+                numiericFieldsValidation(clientIDField.getText()) == -1 ||
+                CarplateNumberField.getText().length() ==0 ||
+                numiericFieldsValidation(closingPriceField.getText()) == -1 ||
+                dateField.getText().length() == 0
+        )
+            return false;
+        else
+            return true;
+    }
+
     public void setFormListener(FormListener listener) {
         this.listener = listener;
+    }
+
+    public void setDialogListener(DialogListener dialogListener){
+        this.dialogListener = dialogListener;
     }
 }

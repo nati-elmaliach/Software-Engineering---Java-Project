@@ -34,7 +34,8 @@ public class MainFrame extends JFrame {
     private SerachEmployeePanel serachEmployeePanel;
     private SearchDealPanel searchDealPanel;
     private TablePanel tablePanel;
-
+    private JDialog dialogBox;
+    private JFrame mainFrame;
 
     private Controller controller;
 
@@ -42,6 +43,7 @@ public class MainFrame extends JFrame {
         super("CarShop");
         setLayout(new BorderLayout());
 
+        mainFrame = this;
         //textArea = new JTextArea();
         toolBar = new ToolBar();
         textPanel = new TextPanel();
@@ -107,7 +109,7 @@ public class MainFrame extends JFrame {
                 if(vehicleType == 0)
                     tablePanel.setPrivateCarsQueryData(controller.getPrivateCarsQuery(e));
                 else if(vehicleType == 1)
-                    //tablePanel.setIndustrialCarsData(controller.getIndustrialCarsQuery(e));
+                    tablePanel.setIndustrialCarsData(controller.getIndustrialCarsQuery(e));
 
                 tablePanel.refresh();
             }
@@ -122,11 +124,27 @@ public class MainFrame extends JFrame {
             }
         });
 
+        searchCustomerPanel.setFormListener(new FormListener(){
+            public void formEventOccurred(FormEvent e){
+                tablePanel.setCustomersQueryData(controller.getCustomersQuery(e));
+
+                    tablePanel.refresh();
+            }
+        });
+
         addNewEmployeePanel.setFormListener(new FormListener() {
             @Override
             public void formEventOccurred(FormEvent e) {
                 controller.addNewEmployee(e);
                 tablePanel.setEmployeeData(controller.getEmployees());
+                tablePanel.refresh();
+            }
+        });
+
+        serachEmployeePanel.setFormListener(new FormListener(){
+            public void formEventOccurred(FormEvent e){
+                tablePanel.setEmployeeQueryData(controller.getEmployeesQuery(e));
+
                 tablePanel.refresh();
             }
         });
@@ -140,15 +158,98 @@ public class MainFrame extends JFrame {
             }
         });
 
+        addNewDealPanel.setDialogListener(new DialogListener() {
+            @Override
+            public void errorOccuerd() {
+                dialogBox= new JDialog(mainFrame,"Error");
 
+                // create a label
+                JLabel l = new JLabel("All fields are Required for adding new object");
+
+                dialogBox.add(l);
+
+                // setsize of dialog
+                dialogBox.setSize(300, 80);
+
+                dialogBox.setLocationRelativeTo(null);
+                // set visibility of dialog
+                dialogBox.setVisible(true);
+            }
+        });
+
+        searchDealPanel.setFormListener(new FormListener(){
+            public void formEventOccurred(FormEvent e){
+                tablePanel.setDealQueryData(controller.getDealsQuery(e));
+
+                tablePanel.refresh();
+            }
+        });
+
+        addNewCarPanel.setDialogListener(new DialogListener() {
+            @Override
+            public void errorOccuerd() {
+                dialogBox= new JDialog(mainFrame,"Error");
+
+                // create a label
+                JLabel l = new JLabel("All fields are Required for adding new object");
+
+                dialogBox.add(l);
+
+                // setsize of dialog
+                dialogBox.setSize(300, 80);
+
+                dialogBox.setLocationRelativeTo(null);
+                // set visibility of dialog
+                dialogBox.setVisible(true);
+            }
+        });
+
+        addNewCustomerPanel.setDialogListener(new DialogListener() {
+            @Override
+            public void errorOccuerd() {
+                dialogBox= new JDialog(mainFrame,"Error");
+
+                // create a label
+                JLabel l = new JLabel("All fields are Required for adding new object");
+
+                dialogBox.add(l);
+
+                // setsize of dialog
+                dialogBox.setSize(300, 80);
+
+                dialogBox.setLocationRelativeTo(null);
+                // set visibility of dialog
+                dialogBox.setVisible(true);
+            }
+        });
+
+        addNewEmployeePanel.setDialogListener(new DialogListener() {
+            @Override
+            public void errorOccuerd() {
+                dialogBox= new JDialog(mainFrame,"Error");
+
+                // create a label
+                JLabel l = new JLabel("All fields are Required for adding new object");
+
+                dialogBox.add(l);
+
+                // setsize of dialog
+                dialogBox.setSize(300, 80);
+
+                dialogBox.setLocationRelativeTo(null);
+                // set visibility of dialog
+                dialogBox.setVisible(true);
+            }
+        });
 
         add(cards,BorderLayout.WEST);
         add(tablePanel,BorderLayout.CENTER);
         add(toolBar,BorderLayout.NORTH);
-        //add(searchPanel,BorderLayout.WEST);
         setMinimumSize( new Dimension(500,400));
+
         this.setSize(1000,600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //pack();
         setVisible(true);
     }
 }

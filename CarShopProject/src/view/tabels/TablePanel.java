@@ -44,7 +44,9 @@ public class TablePanel extends JPanel {
 
         table = new JTable((TableModel) privateCarsTable);
         setLayout(new BorderLayout());
+        table.setBackground(new Color(228,233,237));
         add(new JScrollPane(table),BorderLayout.CENTER);
+        //rgba(228, 233, 237, 1)
     }
 
     public void setTableListener(TableListener listener){
@@ -152,8 +154,6 @@ public class TablePanel extends JPanel {
             case "searchCar":
                 table.setModel(privateCarsTable);
                 break;
-
-
 
         }
 

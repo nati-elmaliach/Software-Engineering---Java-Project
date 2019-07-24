@@ -47,6 +47,103 @@ public class Controller {
         return db.getPrivateCarsQuery(privateCarMap);
     };
 
+    public List<IndustrialCar> getIndustrialCarsQuery(FormEvent e){
+        Map<String,Object> industrialCarMap = new HashMap<String,Object>();
+
+        if(e.getPlateNumber().length() != 0)
+            industrialCarMap.put("plateNumber",e.getPlateNumber());
+        if(e.getColor().length() != 0)
+            industrialCarMap.put("color",e.getColor());
+        if (e.getHand() != -1)
+            industrialCarMap.put("hand",e.getHand());
+        if(e.getKm() !=-1)
+            industrialCarMap.put("KM",e.getKm());
+        if(e.getYearOfPrudction().length() != 0)
+            industrialCarMap.put("yearOfProduction",e.getYearOfPrudction());
+        if(e.getPrice() !=-1)
+            industrialCarMap.put("price",e.getPrice());
+        if(e.getManufacturer().length() !=0)
+            industrialCarMap.put("manufacturer",e.getManufacturer());
+        if(e.getLoadWeight() !=-1)
+            industrialCarMap.put("loadWeight",e.getLoadWeight());
+        if(e.getHeight() !=-1)
+            industrialCarMap.put("height",e.getHeight());
+
+        return db.getIndustrialCarsQuery(industrialCarMap);
+    };
+
+    public List<Customer> getCustomersQuery(FormEvent e) {
+
+        Map <String,Object> customersMap = new HashMap<String, Object>();
+
+        if(e.getFirstName().length() != 0)
+            customersMap.put("firstName",e.getFirstName());
+        if(e.getLastName().length() != 0)
+            customersMap.put("lastName",e.getLastName());
+        if(e.getPhoneNumber().length() != 0)
+            customersMap.put("phoneNumber",e.getPhoneNumber());
+        if(e.getEmail().length() != 0)
+            customersMap.put("email",e.getEmail());
+        if(e.getIntrestedIn().length() != 0)
+            customersMap.put("intrestedIn",e.getIntrestedIn());
+        if(e.getMaxPrice() !=-1)
+            customersMap.put("maxPrice",e.getMaxPrice());
+
+
+        return db.getCustomersQuery(customersMap);
+
+    }
+
+    public List<Employee> getEmployeesQuery(FormEvent e) {
+        Map <String,Object> employeeMap = new HashMap<String, Object>();
+
+        if(e.getFirstName().length() != 0)
+            employeeMap.put("firstName",e.getFirstName());
+
+        if(e.getLastName().length() != 0)
+            employeeMap.put("lastName",e.getLastName());
+
+        if(e.getPhoneNumber().length() != 0)
+            employeeMap.put("phoneNumber",e.getPhoneNumber());
+
+        if(e.getEmail().length() != 0)
+            employeeMap.put("email",e.getEmail());
+
+        if(e.getStartDate().length() != 0)
+            employeeMap.put("startDate",e.getStartDate());
+
+        if(e.getEmployeeType().length() !=0)
+            employeeMap.put("employeeType",e.getEmployeeType());
+
+
+        return db.getEmployeesQuery(employeeMap);
+
+    }
+
+    public List<DealsHistory> getDealsQuery(FormEvent e) {
+        Map <String,Object> dealsMap = new HashMap<String, Object>();
+
+        if(e.getEmployeeID() !=- 1)
+            dealsMap.put("employeeID",e.getEmployeeID());
+
+        if(e.getCustomerID() != -1)
+            dealsMap.put("customerID",e.getCustomerID());
+
+        if(e.getPlateNumber().length() != 0)
+            dealsMap.put("carPlateNumber",e.getPlateNumber());
+
+        if(e.getDealPrice()!= -1)
+            dealsMap.put("sellingPrice",e.getDealPrice());
+
+        if(e.getDealDate().length() != 0)
+            dealsMap.put("dealDate",e.getDealDate());
+
+
+        return db.getDealsHistoryQuery(dealsMap);
+
+
+    }
+
     public List<IndustrialCar> getIndustrialCars(){
         return db.getIndustrialCars();
     };
@@ -109,7 +206,7 @@ public class Controller {
 
         int maxPrice = event.getMaxPrice();
 
-        Customer customer = new Customer(firstName,lastName,email,phoneNumber,category,maxPrice);
+        Customer customer = new Customer(-1,firstName,lastName,email,phoneNumber,category,maxPrice);
         db.addCustomer(customer);
     }
 
@@ -124,7 +221,7 @@ public class Controller {
         EmployeeCategory employeeCategory = EmployeeCategory.valueOf(employeeType);
 
 
-        Employee employee = new Employee(firstName,lastName,email,phoneNumber,startDate,employeeCategory);
+        Employee employee = new Employee(-1,firstName,lastName,email,phoneNumber,startDate,employeeCategory);
         db.addEmployee(employee);
     }
 
@@ -138,5 +235,4 @@ public class Controller {
         DealsHistory dealHistory = new DealsHistory(employeeID,customerID,plateNumber,price,date);
         db.addDeal(dealHistory);
     }
-
 }

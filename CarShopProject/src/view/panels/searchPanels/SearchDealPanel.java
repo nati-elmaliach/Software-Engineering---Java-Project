@@ -162,6 +162,11 @@ public class SearchDealPanel extends FormPanel {
         add(submitForm, gc);
     }
 
+    @Override
+    public boolean formValidation() {
+        return false;
+    }
+
     public void setFormListener(FormListener listener) {
         this.listener = listener;
     }

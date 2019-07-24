@@ -68,6 +68,12 @@ public class SearchCustomerPanel extends FormPanel {
         maxPriceField = new JTextField(10);
         submitForm = new JButton("Search");
 
+        firstNameField.setMinimumSize(new Dimension(120,20));
+        lastNameField.setMinimumSize(new Dimension(120,20));
+        emailField.setMinimumSize(new Dimension(120,20));
+        phoneNumberField.setMinimumSize(new Dimension(120,20));
+        maxPriceField.setMinimumSize(new Dimension(120,20));
+
         submitForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,8 +81,13 @@ public class SearchCustomerPanel extends FormPanel {
                 String lastName = lastNameField.getText();
                 String email = emailField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String intrestCategory = intrestedCategoryField.getSelectedValue().toString();
                 int maxPrice = numiericFieldsValidation(maxPriceField.getText());
+
+
+                if(intrestedCategoryField.getSelectedValue() == null)
+                    return;
+
+                String intrestCategory = intrestedCategoryField.getSelectedValue().toString();
 
                 FormEvent CustomerEvent = new FormEvent(this,firstName,lastName,email,phoneNumber,intrestCategory,maxPrice);
                 if(listener !=null)
@@ -198,6 +209,11 @@ public class SearchCustomerPanel extends FormPanel {
         gc.anchor = GridBagConstraints.FIRST_LINE_START;
         gc.insets = new Insets(10, 0, 0, 0);
         add(submitForm, gc);
+    }
+
+    @Override
+    public boolean formValidation() {
+        return false;
     }
 
     public void setFormListener(FormListener listener) {

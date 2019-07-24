@@ -7,9 +7,13 @@ public class Employee extends Person {
     private String startDate;
     private EmployeeCategory employeeCategory;
 
-    public Employee(String firstName, String lastName, String email, String phoneNumber,String startDate,EmployeeCategory employeeCategory) {
+    public Employee(int optinal_id,String firstName, String lastName, String email, String phoneNumber,String startDate,EmployeeCategory employeeCategory) {
         super(firstName, lastName, email, phoneNumber);
-        this.employeeID = count++;
+        if(optinal_id !=-1)
+            this.employeeID = optinal_id;
+        else
+            this.employeeID = count++;
+
         this.startDate = startDate;
         this.employeeCategory = employeeCategory;
     }

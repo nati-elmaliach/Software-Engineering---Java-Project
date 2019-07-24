@@ -156,9 +156,12 @@ public class SearchCarPanel extends FormPanel {
                     //private car submitted
                     if (vehicleType == 0) {
                         //private cars fields
-                        System.out.println(categoryList.getSelectedValue().toString() + "\n");
-                        String privateCarCategory = categoryList.getSelectedValue().toString();
+
+                        if (categoryList.getSelectedValue() == null)
+                            return;
+
                         int numberOfSeats = numiericFieldsValidation(numOfSeatsField.getText());
+                        String privateCarCategory = categoryList.getSelectedValue().toString();
 
                         FormEvent privateCarEvent = new FormEvent(this, vehicleType, plate, hand, km, yearOfPrudoction, price, color, manufacturer, privateCarCategory, numberOfSeats);
 
@@ -395,7 +398,12 @@ public class SearchCarPanel extends FormPanel {
             add(submitForm, gc);
         }
 
-        public void setFormListener(FormListener listener) {
+    @Override
+    public boolean formValidation() {
+        return false;
+    }
+
+    public void setFormListener(FormListener listener) {
             this.listener = listener;
         }
 }

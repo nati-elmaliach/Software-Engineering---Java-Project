@@ -1,5 +1,6 @@
 package view.panels.AddPanels;
 
+import view.DialogListener;
 import view.forms.FormEvent;
 import view.forms.FormListener;
 import view.panels.FormPanel;
@@ -11,8 +12,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class AddNewCarPanel extends FormPanel {
+
 
     private JLabel plateNumberLabel;
     private JLabel colorLabel;
@@ -39,6 +40,8 @@ public class AddNewCarPanel extends FormPanel {
     private JTextField heightField;
     private JLabel numOfSeatsLabel;
     private JTextField numOfSeatsField;
+    private DialogListener dialogListener;
+
 
     public AddNewCarPanel() {
         super();
@@ -107,6 +110,8 @@ public class AddNewCarPanel extends FormPanel {
         //enable disable by car type
         loadweightLabel.setEnabled(false);
         loadweightField.setEnabled(false);
+        heightLabel.setEnabled(false);
+        heightField.setEnabled(false);
 
         carTypeField.addActionListener(new ActionListener() {
             @Override
@@ -144,6 +149,11 @@ public class AddNewCarPanel extends FormPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                if(formValidation() == false){
+                    dialogListener.errorOccuerd();
+                    return;
+                }
+
                 //All Vehicles shared fields
                 int vehicleType = carTypeField.getSelectedIndex();
                 String plate = plateNumberField.getText();
@@ -157,7 +167,7 @@ public class AddNewCarPanel extends FormPanel {
                 //private car submitted
                 if (vehicleType == 0) {
                     //private cars fields
-                    System.out.println(categoryList.getSelectedValue().toString() + "\n");
+
                     String privateCarCategory = categoryList.getSelectedValue().toString();
                     int numberOfSeats = numiericFieldsValidation(numOfSeatsField.getText());
 
@@ -177,6 +187,7 @@ public class AddNewCarPanel extends FormPanel {
                 }
             }
         });
+
 
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
@@ -396,7 +407,27 @@ public class AddNewCarPanel extends FormPanel {
         add(submitForm, gc);
     }
 
+    @Override
+    public boolean formValidation() {
+        if(plateNumberField.getText().length() == 0 ||
+                categoryList.getSelectedValue() == null||
+                handField.getText().length() == 0 ||
+                kmField.getText().length() == 0 ||
+                yearOfProductionField.getText().length() == 0 ||
+                numiericFieldsValidation(priceField.getText()) == -1 ||
+                manufacturerField.getText().length() ==0 ||
+                carTypeField.getSelectedItem() == null)
+            return false;
+        else
+            return true;
+
+    }
+
     public void setFormListener(FormListener listener) {
         this.listener = listener;
+    }
+
+    public void setDialogListener(DialogListener dialogListener){
+        this.dialogListener = dialogListener;
     }
 }

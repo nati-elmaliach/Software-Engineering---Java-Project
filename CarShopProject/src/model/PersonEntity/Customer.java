@@ -8,9 +8,14 @@ public class Customer extends Person {
     private PrivateCarCategory lokingFor;
     private int maxPrice;
 
-    public Customer(String firstName, String lastName, String email, String phoneNumber, PrivateCarCategory lokingFor, int maxPrice) {
+    public Customer(int optinal_id,String firstName, String lastName, String email, String phoneNumber, PrivateCarCategory lokingFor, int maxPrice) {
         super(firstName, lastName, email, phoneNumber);
-        this.id = count++;
+
+        if(optinal_id != -1)
+            this.id = optinal_id;
+        else
+            this.id = count++;
+
         this.lokingFor = lokingFor;
         this.maxPrice = maxPrice;
     }

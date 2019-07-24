@@ -1,9 +1,9 @@
 package view.panels.AddPanels;
 
+import view.DialogListener;
 import view.forms.FormEvent;
 import view.forms.FormListener;
 import view.panels.FormPanel;
-import view.panels.PrivateCarList;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -24,9 +24,11 @@ public class AddNewEmployeePanel extends FormPanel {
     private JLabel startdateLabel;
     private JTextField startdateField;
     private JLabel employeeCategoryLabel;
-    private JList employeeCategoryField;
+    private JComboBox employeeCategoryField;
     private JButton submitForm;
     private FormListener listener;
+    private DialogListener dialogListener;
+
 
     public AddNewEmployeePanel(){
         super();
@@ -51,25 +53,38 @@ public class AddNewEmployeePanel extends FormPanel {
 
         //set List options
         employeeCategoryLabel = new JLabel("Employee Type");
-        employeeCategoryField = new JList();
-        employeeCategoryField.setPreferredSize(new Dimension(105, 50));
-        employeeCategoryField.setBorder(BorderFactory.createEtchedBorder());
-        employeeCategoryField.setSelectedIndex(0);
+        employeeCategoryField = new JComboBox();
 
-        DefaultListModel typeModel = new DefaultListModel();
-        typeModel.addElement(new PrivateCarList(0, "Employee"));
-        typeModel.addElement(new PrivateCarList(1, "Manager"));
-        employeeCategoryField.setModel(typeModel);
+        DefaultComboBoxModel employeeType = new DefaultComboBoxModel();
+        employeeType.addElement("Employee");
+        employeeType.addElement("Manager");
+        employeeCategoryField.setModel(employeeType);
+        employeeCategoryField.setSelectedIndex(0);
+        employeeCategoryField.setEditable(true);
+        employeeCategoryField.setPreferredSize(new Dimension(105, 20));
+
+        firstNameField.setMinimumSize(new Dimension(120,20));
+        lastNameField.setMinimumSize(new Dimension(120,20));
+        emailField.setMinimumSize(new Dimension(120,20));
+        phoneNumberField.setMinimumSize(new Dimension(120,20));
+        startdateField.setMinimumSize(new Dimension(120,20));
+        employeeCategoryField.setMinimumSize(new Dimension(120,20));
+
 
         submitForm = new JButton("Submit");
         submitForm.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if(formValidation() == false){
+                    dialogListener.errorOccuerd();
+                    return;
+                }
+
                 String firstName = firstNameField.getText();
                 String lastName = lastNameField.getText();
                 String email = emailField.getText();
                 String phoneNumber = phoneNumberField.getText();
-                String employeeType = employeeCategoryField.getSelectedValue().toString();
+                String employeeType = employeeCategoryField.getSelectedItem().toString();
                 String startDate = startdateField.getText();
 
                 FormEvent employeeEvent = new FormEvent(this,firstName,lastName,email,phoneNumber,startDate,employeeType);
@@ -194,7 +209,25 @@ public class AddNewEmployeePanel extends FormPanel {
         add(submitForm, gc);
     }
 
+    @Override
+    public boolean formValidation() {
+
+        if( firstNameField.getText().length() == 0 ||
+                lastNameField.getText().length() ==0 ||
+                emailField.getText().length() ==0 ||
+                phoneNumberField.getText().length() ==0 ||
+                startdateField.getText().length() ==0 ||
+                employeeCategoryField.getSelectedItem() == null)
+            return false;
+        else
+            return true;
+    }
+
     public void setFormListener(FormListener listener) {
         this.listener = listener;
+    }
+
+    public void setDialogListener(DialogListener dialogListener){
+        this.dialogListener = dialogListener;
     }
 }

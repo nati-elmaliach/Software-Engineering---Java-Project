@@ -5,11 +5,13 @@ import java.awt.*;
 
 public abstract class FormPanel extends JPanel {
 
+
     public FormPanel(){
 
         Dimension dim = getPreferredSize();
         dim.width = 250;
         setPreferredSize(dim);
+
     }
 
     public int numiericFieldsValidation(String field) {
@@ -22,4 +24,7 @@ public abstract class FormPanel extends JPanel {
         }
         return result;
     }
+
+    public abstract boolean formValidation();
+
 }
